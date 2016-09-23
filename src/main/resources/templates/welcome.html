@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">
+<head>
+    <title>Sign translator</title>
+</head>
+<body>
+<h1 layout:fragment="header">Welcome</h1>
+
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="pull-right">
+
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label>I sign in</label>
+                <select class="form-control">
+                    <option>Auslan</option>
+                    <option>I don't sign</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="input-group custom-search-form">
+                <input type="text" class="form-control" placeholder="I want to say..."/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

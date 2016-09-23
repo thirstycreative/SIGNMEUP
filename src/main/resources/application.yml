@@ -1,0 +1,8 @@
+spring:
+  profiles.active: dev
+  thymeleaf.cache: false
+  messages.cache-seconds: 2
+  h2.console:
+    enabled: true
+    path: /console
+---

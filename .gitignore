@@ -1,0 +1,31 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+.tern-project
+build/
+
+# Vagrant
+ansible/
+.vagrant/
+Vagrantfile
+
+# logfiles
+log4j.*log*
+
+node_modules/
+
+# node debug qtf
+npm-debug.log

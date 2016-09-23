@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <title>Layout</title>
+    <link rel="stylesheet" th:href="@{/css/vendor/startbootstrap-admin/bootstrap.min.css}" href="../static/css/vendor/startbootstrap-admin/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/vendor/startbootstrap-admin/metisMenu.min.css}" href="../static/css/vendor/startbootstrap-admin/metisMenu.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/vendor/startbootstrap-admin/timeline.css}" href="../static/css/vendor/startbootstrap-admin/timeline.css"/>
+    <link rel="stylesheet" th:href="@{/css/vendor/startbootstrap-admin/sb-admin-2.css}" href="../static/css/vendor/startbootstrap-admin/sb-admin-2.css"/>
+    <!-- Morris Charts CSS -->
+    <link rel="stylesheet" th:href="@{/css/vendor/startbootstrap-admin/morris.css}" href="../static/css/vendor/startbootstrap-admin/morris.css"/>
+    <link rel="stylesheet" th:href="@{/css/vendor/startbootstrap-admin/font-awesome.min.css}" href="../static/css/vendor/startbootstrap-admin/font-awesome.min.css" type="text/css"/>
+    <!-- App CSS -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+<header></header>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">Auslan Translator</a>
+    </div>
+    <!-- /.navbar-header -->
+
+
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a th:href="@{/faq}"><i class="fa fa-dashboard fa-fw"></i> <span>FAQ</span></a>
+                    <a th:href="@{/aboutUs}"><i class="fa fa-dashboard fa-fw"></i> <span>About us</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 layout:fragment="header" class="page-header">Layout</h2>
+        </div>
+    </div>
+    <div layout:fragment="content">
+        <div class="row">
+            <div class="col-lg-12">
+                Fake content
+            </div>
+        </div>
+    </div>
+</main>
+<footer></footer>
+
+
+<script th:src="@{/js/vendor/startbootstrap-admin/jquery.min.js}" src="../static/js/vendor/startbootstrap-admin/jquery.min.js"></script>
+<script th:src="@{/js/vendor/startbootstrap-admin/bootstrap.min.js}" src="../static/js/vendor/startbootstrap-admin/bootstrap.min.js"></script>
+<script th:src="@{/js/vendor/startbootstrap-admin/metisMenu.min.js}" src="../static/js/vendor/startbootstrap-admin/metisMenu.min.js"></script>
+<!-- Morris Charts JavaScript -->
+<script th:src="@{/js/vendor/startbootstrap-admin/raphael-min.js}" src="../static/js/vendor/startbootstrap-admin/raphael-min.js"></script>
+<script th:src="@{/js/vendor/startbootstrap-admin/morris.min.js}" src="../static/js/vendor/startbootstrap-admin/morris.min.js"></script>
+<!-- Custom Theme JavaScript -->
+<script th:src="@{/js/vendor/startbootstrap-admin/sb-admin-2.js}" src="../static/js/vendor/startbootstrap-admin/sb-admin-2.js"></script>
+
+<div layout:fragment="js"></div>
+</body>
+</html>
