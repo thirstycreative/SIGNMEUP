@@ -16,5 +16,10 @@ public class MainController {
         return "welcome";
     }
 
+    @GetMapping("/aboutUs")
+    String about() {
+      return "aboutUs";
+    }
+
 
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 <head>
-    <title>Layout</title>
+    <title>Sign Me Up</title>
     <link rel="stylesheet" th:href="@{/css/vendor/startbootstrap-admin/bootstrap.min.css}" href="../static/css/vendor/startbootstrap-admin/bootstrap.min.css"/>
     <link rel="stylesheet" th:href="@{/css/vendor/startbootstrap-admin/metisMenu.min.css}" href="../static/css/vendor/startbootstrap-admin/metisMenu.min.css"/>
     <link rel="stylesheet" th:href="@{/css/vendor/startbootstrap-admin/timeline.css}" href="../static/css/vendor/startbootstrap-admin/timeline.css"/>
@@ -36,7 +36,7 @@
             <ul class="nav" id="side-menu">
                 <li>
                     <a href="#"><i class="glyphicon glyphicon-question-sign"></i> <span>FAQ</span></a>
-                    <a href="#"><i class="glyphicon glyphicon-info-sign"></i> <span>About us</span></a>
+                    <a th:href="@{/aboutUs}"><i class="glyphicon glyphicon-info-sign"></i> <span>About us</span></a>
                 </li>
             </ul>
         </div>
