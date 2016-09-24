@@ -1,7 +1,5 @@
 $(document).ready(function(){
-  console.log('doc is rdy');
   $('.speak-button').on('click',function(){
-    console.log("button clicked");
     recognition.start();
   });
   $('.search-text').on('click',function(){
@@ -9,5 +7,17 @@ $(document).ready(function(){
     console.log(message);
     convertTextToVideos(message);
     console.log("searching the text now");
+  });
+
+  $('.video').hide();
+
+  $('form').submit(function(e) {
+      e.preventDefault();
+      $('.video').show();
+      const search = $('[name="search"]').val().toLowerCase();
+      console.log(search);
+      currentIndex = 0;
+      words = search.split(" ");
+      Videos.play();
   });
 });
