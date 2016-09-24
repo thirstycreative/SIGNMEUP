@@ -17,6 +17,7 @@ Videos.play = function() {
     // play the video
     videoPlayer.load();
     videoPlayer.play();
+    $('.caption').text(words[currentIndex]);
 
     // increment the currentIndex
     if (currentIndex < words.length -1) {
@@ -30,24 +31,25 @@ Videos.play = function() {
 //do you need a doctor
 //where do you want to go
 
-var dic = ["Alex",
+var dic = ["alex",
 "g",
 "r",
-"Elise",
+"elise",
 "go",
 "restaurant",
 "h",
 "s",
-"Roslyn",
+"roslyn",
+"roslyn",
 "help",
 "sick",
-"Sarah",
+"sarah",
 "hospital",
 "t",
 "Tripti",
 "how",
 "time",
-"a",
+//"a",
 "i",
 "u",
 "ambulance",
