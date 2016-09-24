@@ -37,8 +37,8 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <div th:if="${not #strings.isEmpty(videos)}">
-                <video width="320" height="240" controls="controls" autoplay="true">
+            <div class="video">
+                <video width="320" height="240" id="videoPlayer">
                     <source src="http://media.auslan.org.au/mp4video/33/33460_1.mp4" th:src="${videos}" type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>
@@ -47,6 +47,9 @@
         </div>
 
     </div>
+</div>
+<div layout:fragment="js">
+    <script th:src="@{/js/videos.js}" src="../static/js/videos.js"></script>
 </div>
 </body>
 </html>
