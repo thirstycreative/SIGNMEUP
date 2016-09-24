@@ -11,14 +11,16 @@ $(document).ready(function(){
       const search = $('[name="search"]').val().toLowerCase();
       console.log(search);
       currentIndex = 0;
-      words = search.split(" ");
+      words = search.split(" ").filter(key => dic.indexOf(key) >= 0);
+      console.log(words);
       Videos.play();
   });
+
   $('body').on('keypress',function(e){
     var message = $('.text-input').val();
     if (e.keyCode === 13){
       if (message !== '' ){
-        // $('form').submit();
+        $('form').submit();
         console.log(message);
       }else{
         alert("Say something!");
