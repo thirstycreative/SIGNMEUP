@@ -4,7 +4,7 @@ let words = new Array();
 function Videos() {
 }
 Videos.getPath = function(word) {
-    return '/videos/' + word + '.mp4';
+    return '/videos/' + word + '.MP4';
 }
 
 Videos.play = function() {
