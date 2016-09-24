@@ -15,16 +15,4 @@ $(document).ready(function(){
       console.log(words);
       Videos.play();
   });
-
-  $('body').on('keypress',function(e){
-    var message = $('.text-input').val();
-    if (e.keyCode === 13){
-      if (message !== '' ){
-        $('form').submit();
-        console.log(message);
-      }else{
-        alert("Say something!");
-      }
-    }
-  });
 });

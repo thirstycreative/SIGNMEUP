@@ -29,7 +29,7 @@ recognition.onresult = function(event) {
   $textblock.val(convertedText);
   console.log('event' , event);
   console.log('result', event.results[0][0]);
-
+  $('form').submit();
 };
 
 recognition.onspeechend = function() {
@@ -37,7 +37,7 @@ recognition.onspeechend = function() {
 };
 
 recognition.onnomatch = function(event) {
-  diagnostic.textContent = 'I didnt recognise that color.';
+  diagnostic.textContent = 'I didnt recognise that message.';
 };
 
 recognition.onerror = function(event) {
