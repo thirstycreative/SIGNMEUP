@@ -25,7 +25,12 @@ Videos.play = function() {
         videoPlayer.addEventListener('ended', Videos.play,false);
     }
 }
+//hello my name is Sarah
+//how are you
+//do you need a doctor
+//where do you want to go
 
+var dic = ['my', 'name', 'Sarah', 'how', 'you', 'do', 'need', 'where', 'want', 'go']
 
 $(document).ready(function() {
     $('.video').hide();
@@ -36,7 +41,8 @@ $(document).ready(function() {
         const search = $('[name="search"]').val().toLowerCase();
         console.log(search);
         currentIndex = 0;
-        words = search.split(" ");
+        words = search.split(" ").filter(key => dic.indexOf(key) >= 0);
+        console.log(words);
         Videos.play();
     });
 
