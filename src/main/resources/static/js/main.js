@@ -2,12 +2,6 @@ $(document).ready(function(){
   $('.speak-button').on('click',function(){
     recognition.start();
   });
-  $('.search-text').on('click',function(){
-    var message = $('.text-input').val();
-    console.log(message);
-    convertTextToVideos(message);
-    console.log("searching the text now");
-  });
 
   $('.video').hide();
 
@@ -19,5 +13,16 @@ $(document).ready(function(){
       currentIndex = 0;
       words = search.split(" ");
       Videos.play();
+  });
+  $('body').on('keypress',function(e){
+    var message = $('.text-input').val();
+    if (e.keyCode === 13){
+      if (message !== '' ){
+        // $('form').submit();
+        console.log(message);
+      }else{
+        alert("Say something!");
+      }
+    }
   });
 });
