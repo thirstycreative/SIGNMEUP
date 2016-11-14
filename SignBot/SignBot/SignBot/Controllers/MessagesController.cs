@@ -29,18 +29,19 @@ namespace SignBot
         {
             if (activity.Type == ActivityTypes.Message)
             {
-                Activity replyToConversation = activity.CreateReply("");
-                replyToConversation.Recipient = activity.From;
-                replyToConversation.Type = "message";
-                replyToConversation.Attachments = new List<Attachment>();
-
+                //Activity replyToConversation = activity.CreateReply("");
+                //replyToConversation.Recipient = activity.From;
+                //replyToConversation.Type = "message";
+                //replyToConversation.Attachments = new List<Attachment>();
                 
-
                 Command cmd = new Command();
                 cmd.Message = activity.Text;
                 cmd.CommandType = CommandType.Message;
 
                 //ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
+                
+                //context.PrivateConversationData.SetValue(Command.NAME, cmd);
+                
                 //// calculate something for us to return
                 //int length = (activity.Text ?? string.Empty).Length;
 

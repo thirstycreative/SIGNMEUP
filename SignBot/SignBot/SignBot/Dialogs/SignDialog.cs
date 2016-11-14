@@ -21,6 +21,7 @@ namespace SignBot.Dialogs
 
         public async Task StartAsync(IDialogContext context)
         {
+            
             context.Wait(this.MessageReceivedAsync);
             
 
@@ -30,6 +31,7 @@ namespace SignBot.Dialogs
         {
             var message = await result;
 
+            
             PromptDialog.Choice<string>(
                 context,
                 this.DisplaySelectedCard,
@@ -92,7 +94,7 @@ namespace SignBot.Dialogs
                 Title = "SignBot Video Card",
                 Subtitle = "Your bots — wherever your users are talking",
                 Text = "Build and connect intelligent bots to interact with your users naturally wherever they are, from text/sms to Skype, Slack, Office 365 mail and other popular services.",
-                Media = new List<MediaUrl> { new MediaUrl("http://res.cloudinary.com/dwa0fvkfp/video/upload/v1475410603/yse5x1qpldluz4cw3ss1.mp4 ") },
+                Media = new List<MediaUrl> { new MediaUrl("http://res.cloudinary.com/dwa0fvkfp/video/upload/v1475410603/yse5x1qpldluz4cw3ss1.mp4") },
                 
                 Buttons = new List<CardAction> { new CardAction(ActionTypes.OpenUrl, "Get Started", value: "https://docs.botframework.com/en-us/") }
             };
