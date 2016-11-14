@@ -29,7 +29,23 @@ namespace SignBot.Dialogs
 
         private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<object> result)
         {
-            var message = await result;
+            var res = await result;
+            Activity activity = res as Activity;
+
+            if (null != activity)
+            {
+                string word = activity.Text;
+                string url = Words.UrlForWord(word);
+                if (null != url && url.Length>0)
+                {
+                    Attachment a = new Attachment("video/mp4", url);
+                    var message = context.MakeMessage();
+
+                    //var attachment = GetSelectedCard(selectedCard);
+                    message.Attachments.Add(a);
+                    await context.PostAsync(message);
+                }
+            }
 
             
             PromptDialog.Choice<string>(
