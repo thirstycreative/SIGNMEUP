@@ -81,3 +81,10 @@
 The ngrok terminal should update with `POST /api/messages  202 Accepted`
 
 * Send messages in Chat within [https://dev.botframework.com](https://dev.botframework.com) or send via Skype Client app or call the Bot and wait for automated response
+
+### Run File Detection Program
+
+* Run app to detect when file added to /videos subfolder
+`node ./node_app/src/video.js`
+
+* Add a file into the directory (i.e. test.mp4) and terminal output displays `Added: videos/test.mp4` 
