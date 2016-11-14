@@ -7,12 +7,19 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using Microsoft.Bot.Connector;
 using Newtonsoft.Json;
+using Microsoft.Bot.Builder.Dialogs;
+using SignBot.Dialogs;
+using SignBot.Models;
 
 namespace SignBot
 {
     [BotAuthentication]
     public class MessagesController : ApiController
     {
+        internal static IDialog<string> MakeRootDialog()
+        {
+            return Chain.From(() => new SignDialog());
+        }
         /// <summary>
         /// POST: api/Messages
         /// Receive a message from a user and reply to it
@@ -21,13 +28,19 @@ namespace SignBot
         {
             if (activity.Type == ActivityTypes.Message)
             {
-                ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
-                // calculate something for us to return
-                int length = (activity.Text ?? string.Empty).Length;
+                Command cmd = new Command();
+                cmd.Message = activity.Text;
+                cmd.CommandType = CommandType.Message;
 
-                // return our reply to the user
-                Activity reply = activity.CreateReply($"You sent {activity.Text} which was {length} characters");
-                await connector.Conversations.ReplyToActivityAsync(reply);
+                //ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
+                //// calculate something for us to return
+                //int length = (activity.Text ?? string.Empty).Length;
+
+                //// return our reply to the user
+                //Activity reply = activity.CreateReply($"You sent {activity.Text} which was {length} characters");
+                //await connector.Conversations.ReplyToActivityAsync(reply);
+
+                await Conversation.SendAsync(activity, MakeRootDialog);
             }
             else
             {
