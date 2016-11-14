@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using Microsoft.Bot.Builder.Dialogs;
 using SignBot.Dialogs;
 using SignBot.Models;
+using System.Collections.Generic;
 
 namespace SignBot
 {
@@ -28,6 +29,13 @@ namespace SignBot
         {
             if (activity.Type == ActivityTypes.Message)
             {
+                Activity replyToConversation = activity.CreateReply("");
+                replyToConversation.Recipient = activity.From;
+                replyToConversation.Type = "message";
+                replyToConversation.Attachments = new List<Attachment>();
+
+                
+
                 Command cmd = new Command();
                 cmd.Message = activity.Text;
                 cmd.CommandType = CommandType.Message;
