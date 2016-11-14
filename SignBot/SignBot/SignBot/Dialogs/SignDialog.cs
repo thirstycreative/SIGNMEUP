@@ -38,24 +38,42 @@ namespace SignBot.Dialogs
                 string url = Words.UrlForWord(word);
                 if (null != url && url.Length>0)
                 {
-                    Attachment a = new Attachment("video/mp4", url);
+                    
                     var message = context.MakeMessage();
 
-                    //var attachment = GetSelectedCard(selectedCard);
-                    message.Attachments.Add(a);
+                    var attachment = GetVideoCard(url);
+                    //Attachment a = new Attachment("video/mp4", url);
+                    //message.Attachments.Add(a);
+                    message.AddHeroCard<VideoCard>("", new List<VideoCard>() { attachment }, null);
                     await context.PostAsync(message);
                 }
             }
 
-            
-            PromptDialog.Choice<string>(
-                context,
-                this.DisplaySelectedCard,
-                this.options,
-                "What card would like to test?",
-                "Ooops, what you wrote is not a valid option, please try again",
-                3,
-                PromptStyle.PerLine);
+            context.Done("");
+            //PromptDialog.Choice<string>(
+            //    context,
+            //    this.DisplaySelectedCard,
+            //    this.options,
+            //    "What card would like to test?",
+            //    "Ooops, what you wrote is not a valid option, please try again",
+            //    3,
+            //    PromptStyle.PerLine);
+        }
+
+        private static VideoCard GetVideoCard(string url)
+        {
+            var vCard = new VideoCard
+            {
+                Title = "SignBot Video Card",
+                Subtitle = "Speaking your language",
+                Text = "Build and connect intelligent bots to interact with your users naturally wherever they are, from text/sms to Skype, Slack, Office 365 mail and other popular services.",
+                Media = new List<MediaUrl> { new MediaUrl(url) },
+
+                Buttons = new List<CardAction> { new CardAction(ActionTypes.OpenUrl, "Watch", value: url) }
+            };
+
+            return vCard;
+            //return  new Attachment("video/mp4", vCard.Media[0].Url); ;//.ToAttachmenet();//.ToAttachment();
         }
 
         public async Task DisplaySelectedCard(IDialogContext context, IAwaitable<string> result)
