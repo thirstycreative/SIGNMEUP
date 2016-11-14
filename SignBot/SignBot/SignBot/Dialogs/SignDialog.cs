@@ -35,16 +35,14 @@ namespace SignBot.Dialogs
             if (null != activity)
             {
                 string word = activity.Text;
-                string url = Words.UrlForWord(word);
-                if (null != url && url.Length>0)
+                VideoCard vCard = GetVideoCard(word);
+                if (null != vCard)
                 {
-                    
-                    var message = context.MakeMessage();
-
-                    var attachment = GetVideoCard(url);
-                    //Attachment a = new Attachment("video/mp4", url);
-                    //message.Attachments.Add(a);
-                    message.AddHeroCard<VideoCard>("", new List<VideoCard>() { attachment }, null);
+                    IMessageActivity message = context.MakeMessage();
+                    Attachment a = new Attachment("video/mp4", vCard.Media[0].Url);
+                    message.Attachments.Add(a);
+                    //message.AddHeroCard<VideoCard>("", new List<VideoCard>() { attachment }, null);
+                    //message.Attachments.Add(vCard as Attachment);
                     await context.PostAsync(message);
                 }
             }
@@ -60,19 +58,24 @@ namespace SignBot.Dialogs
             //    PromptStyle.PerLine);
         }
 
-        private static VideoCard GetVideoCard(string url)
+        private static VideoCard GetVideoCard(string word)
         {
-            var vCard = new VideoCard
+            string url = Words.UrlForWord(word);
+            if (null != url && url.Length > 0)
             {
-                Title = "SignBot Video Card",
-                Subtitle = "Speaking your language",
-                Text = "Build and connect intelligent bots to interact with your users naturally wherever they are, from text/sms to Skype, Slack, Office 365 mail and other popular services.",
-                Media = new List<MediaUrl> { new MediaUrl(url) },
+                var vCard = new VideoCard
+                {
+                    Title = "SignBot Video Card",
+                    Subtitle = "Speaking your language",
+                    Text = word,
+                    Autostart = true,
+                    Media = new List<MediaUrl> { new MediaUrl(url) },
+                    Buttons = new List<CardAction> { new CardAction(ActionTypes.OpenUrl, "Watch", value: url) }
+                };
 
-                Buttons = new List<CardAction> { new CardAction(ActionTypes.OpenUrl, "Watch", value: url) }
-            };
-
-            return vCard;
+                return vCard;
+            }
+            return null;
             //return  new Attachment("video/mp4", vCard.Media[0].Url); ;//.ToAttachmenet();//.ToAttachment();
         }
 
