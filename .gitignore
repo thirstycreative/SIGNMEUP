@@ -30,3 +30,5 @@ node_modules/
 
 # node debug qtf
 npm-debug.log
+SignBot/SignBot/SignBot/obj/
+SignBot/SignBot/packages/
